@@ -1,5 +1,7 @@
 package com.jonschwartzsoftware.fencethehead;
 
+import com.google.ads.*;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Score extends Activity implements OnClickListener{
@@ -17,6 +20,9 @@ public class Score extends Activity implements OnClickListener{
 	TextView tvscore, scorelabel, tvhighscore;
 	int finalScore;
 	Bundle gotScore;
+	AdView adview;
+	LinearLayout llAd;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,7 @@ public class Score extends Activity implements OnClickListener{
 		tvscore = (TextView) findViewById(R.id.tvScore);
 		scorelabel = (TextView) findViewById(R.id.tvScoreLabel);
 		tvhighscore = (TextView) findViewById(R.id.tvHighScore);
+		adview = (AdView) findViewById(R.id.adView);
 		
 		SharedPreferences settings = getSharedPreferences("highscore", 0);
 	    int highscore = settings.getInt("highscore", 0);
@@ -51,12 +58,21 @@ public class Score extends Activity implements OnClickListener{
 		    editor.commit();
 		}
 		tvhighscore.setText(Integer.toString(highscore));
+		adview.loadAd(new AdRequest());
 	}
 
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		Intent i = new Intent(Score.this, Play.class);
 		startActivity(i);
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		adview.destroy();
+	    super.onDestroy();
 	}
 
 }
