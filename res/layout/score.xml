@@ -16,9 +16,24 @@
         android:id="@+id/tvScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="100dp"
         android:layout_gravity="center"
-        android:text="0" />
+        android:text="0"
+        android:textSize="100dp" />
+
+    <TextView
+        android:id="@+id/tvHighScoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="High Score" />
+
+    <TextView
+        android:id="@+id/tvHighScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="High Score"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/bPlayAgain"

@@ -72,9 +72,9 @@ public class Play extends Activity implements OnTouchListener {
 		// score
 		
 		score = 0;		
-		time = 28;
+		time = 12;
 		
-		theTime = new CountDownTimer(28000,1000){
+		theTime = new CountDownTimer(12000,1000){
 
 			@Override
 			public void onFinish() {
@@ -183,7 +183,7 @@ public class Play extends Activity implements OnTouchListener {
 				canvas = ourHolder.lockCanvas();
 				canvas.drawRGB(0, 0, 0);
 				if (pLOX != 0 && pLOY != 0) {
-					if (pLOX > canvas.getWidth() / 2 - headL.getWidth() / 2) {
+					if (pLOX > canvas.getWidth() / 2) {
 						canvas.drawBitmap(headL, pLOX - headL.getWidth() / 2,
 								pLOY - headL.getHeight() / 2, null);
 					} else {
