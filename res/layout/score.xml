@@ -41,12 +41,28 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Play Again" />
-    
- 	<com.google.ads.AdView android:id="@+id/adView"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         ads:adUnitId="a14eaff1a365879"
-                         ads:adSize="BANNER"
-                         ads:loadAdOnCreate="true" />
+
+    <com.google.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="a14eaff1a365879"
+        ads:loadAdOnCreate="true" />
+
+    <TextView
+        android:id="@+id/tvYouWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        android:text="" />
+
+    <ImageView
+        android:id="@+id/ivPrize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/icon" />
 
 </LinearLayout>
