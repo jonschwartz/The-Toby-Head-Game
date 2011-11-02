@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/miResetScore"
-        android:title="Reset High Score"/>  
+
+    <item
+        android:id="@+id/miResetScore"
+        android:title="Reset High Score"/>
+
+    <item
+        android:id="@+id/miUsePaul"
+        android:title="Use Paul&apos;s Head"
+        android:visible="false"/>
+
+
+e
+
+
 
 </menu>

@@ -3,4 +3,16 @@
 <Preference
     android:key="highscore"
     android:title="highscore"></Preference>
+<Preference 
+    android:key="usehead"
+    android:defaultValue="0"></Preference>
+<Preference 
+    android:key="paul"
+    android:defaultValue="0"></Preference>
+<Preference 
+    android:key="poo"
+    android:defaultValue="0"></Preference>
+<Preference 
+    android:key="turtle"
+    android:defaultValue="0"></Preference>
 </PreferenceScreen>

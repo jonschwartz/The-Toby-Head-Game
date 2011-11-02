@@ -3,6 +3,7 @@ package com.jonschwartzsoftware.fencethehead;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -28,6 +29,7 @@ public class Play extends Activity implements OnTouchListener {
 	Bitmap headL, headR;
 	PlayArea ourPlayArea;
 	Paint line;
+	SharedPreferences settings;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,9 @@ public class Play extends Activity implements OnTouchListener {
 		ourPlayArea = new PlayArea(this);
 		ourPlayArea.setOnTouchListener(this);
 
+		settings = getSharedPreferences("highscore", 0);
+		int whichHead = settings.getInt("usehead", 0);
+		score = 0;
 		// Play field coordinates
 
 		pTLX = 0;
@@ -59,11 +64,17 @@ public class Play extends Activity implements OnTouchListener {
 
 		// Drawing Resources
 
+		if (whichHead == 1){
 		headL = BitmapFactory.decodeResource(getResources(),
-				R.drawable.toby_head_facing_left);
+				R.drawable.paul_head_facing_left);
 		headR = BitmapFactory.decodeResource(getResources(),
-				R.drawable.toby_head_facing_right);
-
+				R.drawable.paul_head_facing_right);
+		} else {
+			headL = BitmapFactory.decodeResource(getResources(),
+					R.drawable.toby_head_facing_left);
+			headR = BitmapFactory.decodeResource(getResources(),
+					R.drawable.toby_head_facing_right);
+		}
 		line = new Paint();
 		line.setColor(Color.rgb(149, 90, 0));
 		line.setTextSize(30);
@@ -116,11 +127,12 @@ public class Play extends Activity implements OnTouchListener {
 		case MotionEvent.ACTION_DOWN:
 			pLOX = event.getX();
 			pLOY = event.getY();
+			score++;
 			break;
 		case MotionEvent.ACTION_UP:
 			pLTX = event.getX();
 			pLTY = event.getY();
-			score++;
+			
 			//
 
 			break;
